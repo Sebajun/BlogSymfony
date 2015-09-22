@@ -1,0 +1,11 @@
+blog_page:
+    path:     /page/{id}
+    defaults: { _controller: BlogBundle:Article:page, default: 1 }
+    requirements:
+      id: \d+
+
+blog_article:
+    path:     /article/{id}
+    defaults: { _controller: BlogBundle:Article:article }
+    requirements:
+      id: \d+
