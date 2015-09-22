@@ -1,6 +1,6 @@
 blog_page:
-    path:     /page/{pageNumber}
-    defaults: { _controller: BlogBundle:Article:page, pageNumber: 1 }
+    path:     /page/{page}
+    defaults: { _controller: BlogBundle:Article:page, page: 1 }
     requirements:
       pageNumber: \d+
 

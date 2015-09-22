@@ -2,6 +2,8 @@
 
 namespace Project\BlogBundle\Entity;
 
+use Doctrine\ORM\Tools\Pagination\Paginator;
+
 /**
  * ArticleRepository
  *
@@ -10,4 +12,37 @@ namespace Project\BlogBundle\Entity;
  */
 class ArticleRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    /**
+     * Get the paginated list of published articles
+     *
+     * @param int $page
+     * @param int $maxperpage
+     * @param string $sortby
+     * @return Paginator
+     */
+
+    public function getList($page, $maxperpage)
+    {
+        $qb = $this->getEntityManager()->createQueryBuilder();
+        $qb->select('article');
+        $qb->from('BlogBundle:Article','article');
+
+
+        $qb->setFirstResult(($page-1) * $maxperpage)
+            ->setMaxResults($maxperpage);
+
+        return new Paginator($qb);
+    }
+
+    public function count()
+    {
+        $qb = $this->getEntityManager()->createQueryBuilder();
+        $qb->select('article.id');
+        $qb->from('BlogBundle:Article','article');
+
+        $count = count($qb->getQuery()->getResult());
+
+        return $count;
+    }
 }

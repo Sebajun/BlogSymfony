@@ -6,13 +6,29 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ArticleController extends Controller
 {
-    public function pageAction($pageNumber)
+    public function pageAction($page)
     {
+        $maxArticles = 5;
+        $articlesCount = $this->getDoctrine()
+            ->getRepository('BlogBundle:Article')
+            ->count();
 
-        //on récupère tous les 5 derniers articles
+        $pagination = array(
+            'page' => $page,
+            'route' => 'blog_page',
+            'pages_count' => ceil($articlesCount / $maxArticles),
+            'route_params' => array()
+        );
 
-        //on redirige vers la page d'accueil
-        return $this->render('BlogBundle:Default:index.html.twig', array('pageNumber' => $pageNumber));
+        $articles = $this->getDoctrine()->getRepository('BlogBundle:Article')
+            ->getList($page, $maxArticles);
+
+        var_dump($articlesCount);
+
+        return $this->render('::base.html.twig', array(
+            'articles' => $articles,
+            'pagination' => $pagination
+        ));
     }
 
     public function articleAction($id)

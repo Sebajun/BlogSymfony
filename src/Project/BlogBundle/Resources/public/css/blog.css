@@ -15,11 +15,11 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     }
 }
 .blog-masthead {
-    background-color: #428bca;
+    background-color: #00892B;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1) inset;
 }
 .blog-nav-item {
-    color: #cdddeb;
+    color: white;
     display: inline-block;
     font-weight: 500;
     padding: 10px;
@@ -105,4 +105,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 }
 .blog-footer p:last-child {
     margin-bottom: 0;
+}
+
+a{
+    color: #00892B;
 }
