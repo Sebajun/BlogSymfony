@@ -1,11 +1,11 @@
 blog_page:
-    path:     /page/{id}
-    defaults: { _controller: BlogBundle:Article:page, default: 1 }
+    path:     /page/{pageNumber}
+    defaults: { _controller: BlogBundle:Article:page, pageNumber: 1 }
     requirements:
-      id: \d+
+      pageNumber: \d+
 
 blog_article:
     path:     /article/{id}
-    defaults: { _controller: BlogBundle:Article:article }
+    defaults: { _controller: BlogBundle:Article:article, id: 1 }
     requirements:
       id: \d+

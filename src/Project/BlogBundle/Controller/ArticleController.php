@@ -6,13 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ArticleController extends Controller
 {
-    public function pageAction($name)
+    public function pageAction($pageNumber)
     {
 
         //on récupère tous les 5 derniers articles
 
         //on redirige vers la page d'accueil
-        return $this->render('BlogBundle:Default:index.html.twig', array('name' => $name));
+        return $this->render('BlogBundle:Default:index.html.twig', array('pageNumber' => $pageNumber));
     }
 
     public function articleAction($id)

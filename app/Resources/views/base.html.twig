@@ -2,15 +2,69 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Breaking Bad Blog</title>
         {% block stylesheets %}
-            <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap/dist/css/bootstrap.min.css') }} />
+            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/blog/vendor/bootstrap/dist/css/bootstrap.min.css') }}"/>
+            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/blog/css/blog.css') }}"
         {% endblock %}
-        {% block javascripts %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
 
+        <div class="blog-masthead">
+            <div class="container">
+                <nav class="blog-nav">
+                    <a class="blog-nav-item active" href="{{ path('blog_page')}}">Home</a>
+                    <a class="blog-nav-item" href="#">About</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="blog-header">
+                <h1 class="blog-title">Breaking Bad Blog</h1>
+                <p class="lead blog-description">I'm in the empire business</p>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-8 blog-main">
+                    {% block body %}
+                    {% endblock %}
+                    <nav>
+                        <ul class="pager">
+                            <li><a href="#">Previous</a></li>
+                            <li><a href="#">Next</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- /.blog-main -->
+
+                <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+                    <div class="sidebar-module sidebar-module-inset">
+                        <h4>About</h4>
+                        <p>I'm in an engineering school and i'm found of Breaking Bad which is the best series in the entire world. If you doubt it, leave this website <a href="http://www.google.com">[ -]</a></p>
+                    </div>
+                    <div class="sidebar-module">
+                        <h4>My work</h4>
+                        <ol class="list-unstyled">
+                            <li><a href="https://github.com/Sebajun/project">GitHub</a></li>
+                        </ol>
+                    </div>
+                </div><!-- /.blog-sidebar -->
+
+            </div><!-- /.row -->
+
+        </div><!-- /.container -->
+
+        <footer class="blog-footer">
+            <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+            <p>
+                <a href="#">Back to top</a>
+            </p>
+        </footer>
     </body>
 </html>
+

@@ -1,35 +1,16 @@
 {% extends '::Base.html.twig' %}
-{% block stylesheets %}
-    {% stylesheets 'bundles/film/css/film.css' filter='cssrewrite' %}
-    <link rel="stylesheet" href="{{ asset_url }}"/>
-    {% endstylesheets %}
-{% endblock %}
-
-{% block javascripts %}
-
-{% endblock %}
 
 {% block title %}{{ 'Article - '~article.title }}{% endblock %}
 
 {%  block body %}
 
-    {% block article_info %}
-        <h2>{{ article.title }}</h2>
-        <h3> Créé par {{ article.author }} le {{ article.created|date("d/m/Y") }} </h3>
-        {% if article.updated is not null %}
-            <h4>Mis à jour le {{ article.updated|date("d/m/Y") }}</h4>
-        {% endif %}
-    {% endblock %}
+    <div class="blog-post">
+        <h2 class="blog-post-title">{{ article.title }}</h2>
+        <p class="blog-post-meta">{{ article.created|date('d/m/Y')}} by <a href="#">{{ article.author }}</a></p>
 
-    {% block image %}
-        <img src="{{ article.image }}" alt="image de l'article"/>
-    {% endblock %}
-    <br/>
-    {% block content %}
         {{ article.content }}
-    {% endblock %}
 
-
+    </div>
 {%  endblock %}
 
 
