@@ -23,9 +23,7 @@ class ArticleController extends Controller
         $articles = $this->getDoctrine()->getRepository('BlogBundle:Article')
             ->getList($page, $maxArticles);
 
-        var_dump($articlesCount);
-
-        return $this->render('::base.html.twig', array(
+        return $this->render(':default:index.html.twig', array(
             'articles' => $articles,
             'pagination' => $pagination
         ));

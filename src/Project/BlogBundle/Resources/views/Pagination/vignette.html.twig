@@ -1,4 +1,4 @@
 <div class="blog-post">
-    <a href="{{ path('blog_article', { 'page': article.id }) }}"><h2 class="blog-post-title">{{ article.title }}</h2></a>
+    <a href="{{ path('blog_article', { 'id': article.id }) }}"><h2 class="blog-post-title">{{ article.title }}</h2></a>
     <p class="blog-post-meta">{{ article.created|date('d/m/Y')}} by <a href="#">{{ article.author }}</a></p>
 </div>

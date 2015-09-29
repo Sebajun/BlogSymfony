@@ -9,3 +9,9 @@ blog_article:
     defaults: { _controller: BlogBundle:Article:article, id: 1 }
     requirements:
       id: \d+
+
+edit_article:
+    path: /edit_article/{id}
+    defaults: {_controller: BlogBundle:EditArticle:edit }
+    requirements:
+      id: \d+

@@ -1,16 +1,14 @@
-{% extends '::Base.html.twig' %}
+{% extends '::base.html.twig' %}
 
 {% block title %}{{ 'Article - '~article.title }}{% endblock %}
 
-{%  block body %}
-
+{% block body %}
     <div class="blog-post">
-        <h2 class="blog-post-title">{{ article.title }}</h2>
+        <h2 class="blog-post-title">{{ article.title }} <a href="{{ path('edit_article', { 'id': article.id }) }}"><span class="glyphicon glyphicon-edit"></span></a></h2>
         <p class="blog-post-meta">{{ article.created|date('d/m/Y')}} by <a href="#">{{ article.author }}</a></p>
 
         {{ article.content }}
 
     </div>
-{%  endblock %}
-
+{% endblock %}
 
