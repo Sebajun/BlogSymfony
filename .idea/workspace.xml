@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8ffcbac9-b243-4eaf-96ed-39ac0353c220" name="Default" comment="Ajout de la page d'édition des articles.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Project/BlogBundle/Controller/ArticleController.php" afterPath="$PROJECT_DIR$/src/Project/BlogBundle/Controller/ArticleController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Project/BlogBundle/Resources/views/Article/article.html.twig" afterPath="$PROJECT_DIR$/src/Project/BlogBundle/Resources/views/Article/article.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Project/BlogBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/Project/BlogBundle/Resources/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Project/BlogBundle/Resources/views/Pagination/vignette.html.twig" afterPath="$PROJECT_DIR$/src/Project/BlogBundle/Resources/views/Pagination/vignette.html.twig" />
+    <list default="true" id="8ffcbac9-b243-4eaf-96ed-39ac0353c220" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Project/BlogBundle/Resources/public/images/brba.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Project/BlogBundle/Resources/public/images/wallhaven-88148.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Project/BlogBundle/Controller/EditArticleController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Project/BlogBundle/Resources/views/Article/edit_article.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="project.iws" />
@@ -37,8 +34,8 @@
       <file leaf-file-name="ArticleController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Project/BlogBundle/Controller/ArticleController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.8571428" vertical-offset="0" max-vertical-offset="918">
-              <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.04761905" vertical-offset="0" max-vertical-offset="918">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -389,14 +386,21 @@
       <option name="number" value="Default" />
       <updated>1442318602356</updated>
     </task>
+    <task id="LOCAL-00001" summary="Ajout de la page d'édition des articles.">
+      <created>1443518798490</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1443518798490</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32843137" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32843137" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3267974" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -826,8 +830,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Project/BlogBundle/Controller/ArticleController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8571428" vertical-offset="0" max-vertical-offset="918">
-          <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.04761905" vertical-offset="0" max-vertical-offset="918">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>

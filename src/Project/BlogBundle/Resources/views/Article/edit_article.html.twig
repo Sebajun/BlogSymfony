@@ -1,0 +1,10 @@
+{% extends '::base.html.twig' %}
+{% block title %}{{ 'Article - Edition' }}{% endblock %}
+
+{% block body %}
+    <p><a href="{{ path('blog_article', { 'id': id })}}"><span class="glyphicon glyphicon-arrow-left"></span> retour à l'article </a></p>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}
