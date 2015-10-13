@@ -5,28 +5,43 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}Breaking Bad Blog{% endblock %}</title>
+        {% block javascript %}
+            <script src="{{ asset('bundles/blog/vendor/jquery/dist/jquery.min.js') }}"></script>
+            <script src="{{ asset('bundles/blog/vendor/bootstrap/js/modal.js') }}"></script>
+        {% endblock %}
         {% block stylesheets %}
             <link rel="stylesheet" type="text/css" href="{{ asset('bundles/blog/vendor/bootstrap/dist/css/bootstrap.min.css') }}"/>
-            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/blog/css/blog.css') }}"
+            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/blog/css/blog.css') }}">
+            <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" />
+            <!-- Basic formatting for image, video, table, code and quote. -->
+            <link   href="{{ asset( "bundles/kmsfroalaeditor/css/froala_content.min.css" ) }}"
+                    rel="stylesheet" type="text/css" />
+
+            <!-- CSS rules for styling the block tags such as p, h1, h2, etc. -->
+            <link   href="{{ asset( "bundles/kmsfroalaeditor/css/froala_style.min.css" ) }}"
+                    rel="stylesheet" type="text/css" />
+
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
 
-        <div class="blog-masthead">
+        <div class="blog-masthead navbar-fixed-top">
             <div class="container">
                 <nav class="blog-nav">
-                    <a class="blog-nav-item active" href="{{ path('blog_page')}}">Home</a>
-                    <a class="blog-nav-item" href="#">About</a>
+                    {% block masthead %}
+                        <a class="blog-nav-item active" href="{{ path('blog_page')}}">Home</a>
+                        <a class="blog-nav-item" href="#">About</a>
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <a class="blog-nav-item" href="{{ path('create_article') }}">Write an article</a>
+                                <a class="blog-nav-item" href="{{ path('manage_article') }}">Manage articles</a>
+                            {% endif %}
+                    {% endblock %}
+                    {% include "BlogBundle:Security:nav_login.html.twig" %}
                 </nav>
             </div>
         </div>
 
-        <div class="container">
-            <div class="row">
-                <!--<img src="{{ asset('bundles/blog/images/brba.png') }}">-->
-            </div>
-        </div>
 
         <div class="container">
             <div class="blog-header">
@@ -64,6 +79,45 @@
                 <a href="#">Back to top</a>
             </p>
         </footer>
+
+        <!-- Modal -->
+        <div id="login_modal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Login</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-inline" role="form" action="{{ path("fos_user_security_check") }}" method="post">
+
+                            <div class="form-group">
+                                <input class="form-control"type="text" name="_username" required="required" id="login" placeholder="Login" />
+                            </div>
+
+                            <div class="form-group">
+                                <input class="form-control" type="password" name="_password" required="required" id="pwd" placeholder="Password"/>
+                            </div>
+
+                            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                            <label for="remember_me">Remember</label>
+
+                            <input type="hidden" name="_csrf_token" value="{{ fos_csrf_provider.generateCsrfToken('authenticate') }}" />
+
+                            <input class="btn btn-default" type="submit" id="_submit" name="_submit" value="Log in" />
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </body>
 </html>
 

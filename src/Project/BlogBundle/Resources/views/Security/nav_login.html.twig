@@ -1,26 +1,21 @@
 {# L'utilisateur est-il connecté ? #}
+<div class="nav_login">
 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
     {# L'utilisateur est connecté ! #}
-    <a class="blog-nav-item " href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+        <a class="btn btn-default" href="{{ path('fos_user_profile_show') }}"><span class="glyphicon glyphicon-user"></span> My profile</a>
+        <a class="btn btn-default" href="{{ path('fos_user_security_logout') }}">Logout</a>
 
 {% else %}
     {# L'utilisateur n'est pas connecté ! #}
-    <form class="nav_login" action="{{ path("fos_user_security_check") }}" method="post">
-        <label>Login</label>
-        <input type="text" name="_username" required="required" />
+        <button type="button" class="btn btn-default" aria-label="Left Align" data-toggle="modal" data-target="#login_modal">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            Login
+        </button>
 
-        <label>Password</label>
-        <input type="password" name="_password" required="required" />
+        <a class="btn btn-default" href="{{ path('fos_user_registration_register') }}">Register now</a>
 
-        <input type="hidden" name="_csrf_token" value="{{ fos_csrf_provider.generateCsrfToken('authenticate') }}" />
 
-        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-        <label for="remember_me">{{ 'Se souvenir'}}</label>
 
-        <input type="submit" id="_submit" name="_submit" value="Connexion" />
 
-    </form>
-
-    <a class="blog-nav-item " href="{{ path('fos_user_registration_register') }}">Inscription</a>
 {% endif %}
-
+</div>

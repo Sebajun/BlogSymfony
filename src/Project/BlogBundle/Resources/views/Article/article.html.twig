@@ -4,10 +4,22 @@
 
 {% block body %}
     <div class="blog-post">
-        <h2 class="blog-post-title">{{ article.title }} <a href="{{ path('edit_article', { 'id': article.id }) }}"><span class="glyphicon glyphicon-edit"></span></a></h2>
-        <p class="blog-post-meta">{{ article.created|date('d/m/Y')}} by <a href="#">{{ article.author }}</a></p>
-
-        {{ article.content }}
+        {# L'utilisateur est-il admin ? #}
+        <h2 class="blog-post-title">{{ article.title }} <a href="{{ path('edit_article', { 'id': article.id }) }}">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                {% if is_granted('ROLE_ADMIN') %}
+                    <span class="glyphicon glyphicon-edit"></span>
+                {% endif %}
+            {% endif %}
+                </a>
+        </h2>
+        <p class="blog-post-meta">{{ article.created|date('F jS \\a\\t g:ia')}} by <a href="#">{{ article.author }}</a></p>
+        <div class="froala-view">
+            {{ article.content | raw }}
+        </div>
+        {% if article.updated is not null and date(article.updated) > date(article.created) %}
+            <p class="blog-post-meta edited"><em>Modified on {{ article.updated | date('F jS \\a\\t g:ia') }}</em></p>
+        {% endif %}
 
     </div>
 {% endblock %}

@@ -27,6 +27,7 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
         $qb = $this->getEntityManager()->createQueryBuilder();
         $qb->select('article');
         $qb->from('BlogBundle:Article','article');
+        $qb->orderBy('article.created', 'DESC');
 
 
         $qb->setFirstResult(($page-1) * $maxperpage)

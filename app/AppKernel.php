@@ -18,6 +18,9 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
             new Project\BlogBundle\BlogBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+            new Project\UserBundle\UserBundle(),
+            new KMS\FroalaEditorBundle\KMSFroalaEditorBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

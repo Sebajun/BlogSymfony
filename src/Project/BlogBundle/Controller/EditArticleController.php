@@ -27,14 +27,21 @@ class EditArticleController extends Controller
         $form = $this->createFormBuilder($article)
             ->add('title', 'text')
             ->add('author', 'text')
-            ->add('content', 'textarea')
-            ->add('updated', 'date')
+            ->add('content', 'textarea', array(
+                'attr' => array(
+                    'rows' => '25',
+                    'cols' => '80',
+                )
+            ))
+            ->add('created', 'date', array( 'disabled' => 'true'))
             ->add('save', 'submit', array('label' => 'Edit Article'))
             ->getForm();
 
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+
+            $article->setUpdated(new \DateTime("now"));
             $em->flush();
         }
 
@@ -44,5 +51,16 @@ class EditArticleController extends Controller
             'form'=>$form,
             'id'=>$id,
         ));
+    }
+
+    public function deleteAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $article = $em->getRepository('BlogBundle:Article')->find($id);
+
+        $em->remove($article);
+        $em->flush();
+
+        return $this->redirectToRoute('manage_article');
     }
 }

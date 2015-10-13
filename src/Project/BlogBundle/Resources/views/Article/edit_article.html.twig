@@ -2,9 +2,37 @@
 {% block title %}{{ 'Article - Edition' }}{% endblock %}
 
 {% block body %}
-    <p><a href="{{ path('blog_article', { 'id': id })}}"><span class="glyphicon glyphicon-arrow-left"></span> retour à l'article </a></p>
+    <p><a href="{{ path('blog_article', { 'id': id })}}"><span class="glyphicon glyphicon-arrow-left"></span> Back to the article </a></p>
 
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
+
+    {{ form_start(form, {'role':'form'}) }}
+
+        <div class="form-group">
+            {{ form_label(form.title) }}
+            {{ form_errors(form.title) }}
+            {{ form_widget(form.title, {'attr' : {'class' : 'form-control'} }) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.author) }}
+            {{ form_errors(form.author) }}
+            {{ form_widget(form.author, {'attr' : {'class' : 'form-control'} }) }}
+        </div>
+
+        <div class="froala-view">
+            {{ form_row(form.content | raw  ) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.created) }}
+            {{ form_errors(form.created) }}
+            {{ form_widget(form.created) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.save) }}
+            {{ form_widget(form.save, {'attr' : {'class' : 'btn btn-default'} }) }}
+        </div>
+
     {{ form_end(form) }}
 {% endblock %}
